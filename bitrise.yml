@@ -41,7 +41,7 @@ workflows:
             # debug log
             set -x
 
-            bazel build //app:app
+            bazel build //app:app --incompatible_java_common_parameters=false
     - script@1:
         title: Copy Artifacts
         inputs:
@@ -87,7 +87,7 @@ workflows:
             # debug log
             set -x
 
-            bazel test //app:tests
+            bazel test //app:tests --incompatible_java_common_parameters=false
     - script@1:
         title: Copy Artifacts
         inputs:
@@ -108,3 +108,4 @@ workflows:
 meta:
   bitrise.io:
     stack: linux-docker-android-20.04
+    machine_type_id: elite
